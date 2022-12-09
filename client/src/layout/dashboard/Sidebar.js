@@ -9,27 +9,24 @@ const Sidebar = () => {
           Admin Dashboard
         </li>
         <hr />
-        <li>
+        <li className="overflow-hidden text-ellipsis whitespace-nowrap">
           <Link
             to="/dashboard"
-            className="overflow-hidden text-ellipsis whitespace-nowrap"
           >
             Blog List
           </Link>
         </li>
-        <li>
+        <li className="overflow-hidden text-ellipsis whitespace-nowrap">
           <Link
             to="add-blog"
-            className="overflow-hidden text-ellipsis whitespace-nowrap"
           >
             {" "}
             Add Blog{" "}
           </Link>
         </li>
-        <li className="mt-auto">
+        <li className="mt-auto overflow-hidden text-ellipsis whitespace-nowrap">
           <Link
             to="/"
-            className="overflow-hidden text-ellipsis whitespace-nowrap"
           >
             {" "}
             Back to Home{" "}

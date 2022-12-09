@@ -39,6 +39,7 @@ const Navbar = () => {
                 <span
                   className="bg-indigo-500 text-white font-medium text-sm rounded-full h-7 w-7 inline-block cursor-pointer shadow"
                   onClick={async () => await signOut()}
+                  title="Sign out"
                 >
                   <span className="h-full w-full flex justify-center items-center">
                     {user?.displayName

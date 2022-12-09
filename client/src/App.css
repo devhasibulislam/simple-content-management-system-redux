@@ -3,3 +3,8 @@
 .App {
   font-family: "Lato", sans-serif;
 }
+
+::selection{
+  color: white;
+  background-color: indigo;
+}

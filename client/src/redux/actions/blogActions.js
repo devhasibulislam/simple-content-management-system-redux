@@ -34,3 +34,9 @@ export const updateBlogData = (data) => {
     payload: data,
   };
 };
+
+export const toggleSortBy = () => {
+  return {
+    type: blogActionTypes.TOGGLE_SORTBY,
+  };
+};

@@ -3,6 +3,7 @@ import blogActionTypes from "../actionTypes/blogActionTypes";
 const initialState = {
   blogs: [],
   blog: {},
+  sortBy: false,
 };
 
 const blogReducer = (state = initialState, action) => {
@@ -39,6 +40,12 @@ const blogReducer = (state = initialState, action) => {
           state.blogs.filter((blog) => blog._id !== action.payload._id),
           action.payload,
         ],
+      };
+
+    case blogActionTypes.TOGGLE_SORTBY:
+      return {
+        ...state,
+        sortBy: !state.sortBy,
       };
 
     default:

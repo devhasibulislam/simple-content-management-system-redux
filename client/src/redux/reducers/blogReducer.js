@@ -7,19 +7,19 @@ const initialState = {
 
 const blogReducer = (state = initialState, action) => {
   switch (action.type) {
-    case blogActionTypes.ADD_BLOG:
+    case blogActionTypes.ADD_CONTENT:
       return {
         ...state,
         blogs: [...state.blogs, action.payload],
       };
 
-    case blogActionTypes.REMOVE_BLOG:
+    case blogActionTypes.DELETE_CONTENT:
       return {
         ...state,
         blogs: state.blogs.filter((blog) => blog._id !== action.payload),
       };
 
-    case blogActionTypes.FETCH_BLOGS:
+    case blogActionTypes.GET_CONTENT:
       return {
         ...state,
         blogs: action.payload,
@@ -31,7 +31,7 @@ const blogReducer = (state = initialState, action) => {
         blog: action.payload,
       };
 
-    case blogActionTypes.UPDATE_BLOG:
+    case blogActionTypes.UPDATE_CONTENT:
       return {
         ...state,
         blogs: [

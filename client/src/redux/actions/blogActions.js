@@ -2,21 +2,21 @@ import blogActionTypes from "../actionTypes/blogActionTypes";
 
 export const addBlogData = (data) => {
   return {
-    type: blogActionTypes.ADD_BLOG,
+    type: blogActionTypes.ADD_CONTENT,
     payload: data,
   };
 };
 
 export const removeBlogData = (id) => {
   return {
-    type: blogActionTypes.REMOVE_BLOG,
+    type: blogActionTypes.DELETE_CONTENT,
     payload: id,
   };
 };
 
 export const fetchBlogsData = (data) => {
   return {
-    type: blogActionTypes.FETCH_BLOGS,
+    type: blogActionTypes.GET_CONTENT,
     payload: data,
   };
 };
@@ -30,7 +30,7 @@ export const fetchBlogData = (data) => {
 
 export const updateBlogData = (data) => {
   return {
-    type: blogActionTypes.UPDATE_BLOG,
+    type: blogActionTypes.UPDATE_CONTENT,
     payload: data,
   };
 };

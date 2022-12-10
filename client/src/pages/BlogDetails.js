@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { addHistory } from "../hooks/useHistory";
 import getBlog from "../redux/thunks/getBlog";
 
 const BlogDetails = () => {
@@ -11,6 +12,8 @@ const BlogDetails = () => {
   useEffect(() => {
     dispatch(getBlog(id));
   }, [dispatch, id]);
+
+  addHistory();
 
   const { title, image, description, tag, author, rating, highlights, _id } =
     blog;

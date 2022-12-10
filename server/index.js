@@ -67,13 +67,14 @@ const run = async () => {
       const body = req.body;
       const result = await blogsCollection.updateOne(
         { _id: ObjectId(id) },
-        { $set: body }
+        { $set: body },
+        { upsert: true }
       );
 
       res.status(202).send({
         status: true,
         message: "Accepted",
-        description: "Remove existing blog successfully.",
+        description: "Update existing blog successfully.",
         data: result,
       });
     });

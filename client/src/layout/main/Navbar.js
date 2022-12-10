@@ -27,6 +27,9 @@ const Navbar = () => {
             <Link to={"/"}>Home</Link>
           </li>
           <li>
+            <Link to={"/tags"}>Tags</Link>
+          </li>
+          <li>
             <Link to={"/dashboard"}>Dashboard</Link>
           </li>
           {loadingSI || loadingSO ? (

@@ -1,4 +1,4 @@
-import { updateBlogData } from "../actions/blogActions";
+import { fetchBlogData } from "../actions/blogActions";
 
 const getBlog = (id) => {
   return async (dispatch, getState) => {
@@ -6,7 +6,7 @@ const getBlog = (id) => {
     const data = await res.json();
 
     if (data.status) {
-      dispatch(updateBlogData(data.data));
+      dispatch(fetchBlogData(data.data));
     }
   };
 };

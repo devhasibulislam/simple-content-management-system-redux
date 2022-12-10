@@ -14,7 +14,7 @@ const AddBlog = () => {
       image: data.image,
       tag: data.tag,
       author: data.author,
-      rating: data.rating,
+      rating: Number(data.rating),
       highlights: [
         data.highlight1,
         data.highlight2,

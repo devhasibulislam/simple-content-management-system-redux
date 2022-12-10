@@ -58,7 +58,7 @@ const BlogCard = ({ blog }) => {
           Read more
         </button>
         <span className="rounded-full flex">
-          {[...Array(rating).keys()].map((rate) => (
+          {[...Array(Number(rating)).keys()].map((rate) => (
             <svg
               key={rate}
               xmlns="http://www.w3.org/2000/svg"

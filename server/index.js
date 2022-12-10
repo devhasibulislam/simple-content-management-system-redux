@@ -24,6 +24,7 @@ const run = async () => {
   try {
     const db = client.db("simple-cms-redux");
     const blogsCollection = db.collection("blogs");
+    const usersCollection = db.collection("users");
     console.log("Simple CMS Redux connected successfully.");
 
     app.get("/blogs", async (req, res) => {
@@ -87,6 +88,30 @@ const run = async () => {
         status: true,
         message: "Accepted",
         description: "Remove existing blog successfully.",
+        data: result,
+      });
+    });
+
+    app.post("/user", async (req, res) => {
+      const user = req.body;
+      const result = await usersCollection.insertOne(user);
+
+      res.status(202).send({
+        status: true,
+        message: "Created",
+        description: "Successfully created new user.",
+        data: result,
+      });
+    });
+
+    app.get("/user/:email", async (req, res) => {
+      const email = req.params.email;
+      const result = await usersCollection.findOne({ email: email });
+
+      res.status(200).send({
+        status: true,
+        message: "OK",
+        description: "Fetching specific blog successfully.",
         data: result,
       });
     });

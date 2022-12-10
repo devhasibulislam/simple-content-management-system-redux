@@ -1,88 +1,47 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import getBlogs from "../../redux/thunks/getBlogs";
+import getBlog from "../../redux/thunks/getBlog";
 
 const UpdateBlog = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const { blogs } = useSelector((state) => state?.blog);
+  const { blog } = useSelector((state) => state.blog);
 
   useEffect(() => {
-    dispatch(getBlogs());
-  }, [dispatch]);
+    dispatch(getBlog(id));
+  }, [dispatch, id]);
 
-  const blog = blogs?.find((blg) => blg?._id === id);
-
-  const [weBlog, setWeBlog] = useState({
-    title: blog?.title,
-    description: blog?.description,
-    image: blog?.image,
-    tag: blog?.tag,
-    author: blog?.author,
-    rating: blog?.rating,
-    highlights: [...blog?.highlights],
-  });
-
-  function handleUpdateBlog(event) {
-    event.preventDefault();
-
-    console.log(weBlog);
-  }
+  console.log(blog);
 
   return (
     <section className="flex flex-col justify-center items-center h-full w-full ">
-      <form
-        className="shadow-lg p-10 rounded-md flex flex-wrap gap-3 max-w-3xl justify-between bg-white"
-        onSubmit={handleUpdateBlog}
-      >
+      <form className="shadow-lg p-10 rounded-md flex flex-wrap gap-3 max-w-3xl justify-between bg-white">
         <div className="flex flex-col w-full max-w-xs">
           <label className="mb-2" htmlFor="title">
             Title
           </label>
-          <input
-            type="text"
-            id="title"
-            value={weBlog.title}
-            onChange={(event) => setWeBlog({ title: event.target.value })}
-          />
+          <input type="text" id="title" />
         </div>
         <div className="flex flex-col w-full max-w-xs">
           <label className="mb-2" htmlFor="image">
             Image
           </label>
-          <input
-            type="text"
-            name="image"
-            id="image"
-            value={weBlog.image}
-            onChange={(event) => setWeBlog({ image: event.target.value })}
-          />
+          <input type="text" name="image" id="image" />
         </div>
 
         <div className="flex flex-col w-full">
           <label className="mb-2" htmlFor="description">
             Description
           </label>
-          <textarea
-            type="text"
-            name="description"
-            id="description"
-            value={weBlog.description}
-            onChange={(event) => setWeBlog({ description: event.target.value })}
-          />
+          <textarea type="text" name="description" id="description" />
         </div>
 
         <div className="flex flex-col w-full max-w-xs">
           <label className="mb-3" htmlFor="tag">
             Tag
           </label>
-          <select
-            name="tag"
-            id="tag"
-            value={weBlog.tag}
-            onChange={(event) => setWeBlog({ tag: event.target.value })}
-          >
+          <select name="tag" id="tag">
             <option value="programming-language">Programming Language</option>
             <option value="interview-question">Interview Question</option>
             <option value="aptitude-qna">Aptitude QNA</option>
@@ -99,89 +58,39 @@ const UpdateBlog = () => {
           <label className="mb-2" htmlFor="author">
             Author
           </label>
-          <input
-            type="text"
-            name="author"
-            id="author"
-            value={weBlog.author}
-            onChange={(event) => setWeBlog({ author: event.target.value })}
-          />
+          <input type="text" name="author" id="author" />
         </div>
 
         <div className="flex flex-col w-full max-w-xs">
           <label className="mb-2" htmlFor="highlight1">
             Highlight 1
           </label>
-          <input
-            type="text"
-            name="highlight1"
-            id="highlight1"
-            value={weBlog?.highlights[0]}
-            onChange={(event) =>
-              setWeBlog({ highlights: [event.target.value] })
-            }
-          />
+          <input type="text" name="highlight1" id="highlight1" />
         </div>
         <div className="flex flex-col w-full max-w-xs">
           <label className="mb-2" htmlFor="highlight2">
             Highlight 2
           </label>
-          <input
-            type="text"
-            name="highlight2"
-            id="highlight2"
-            value={weBlog?.highlights[1]}
-            onChange={(event) =>
-              setWeBlog({
-                highlights: [...weBlog?.highlights, event.target.value],
-              })
-            }
-          />
+          <input type="text" name="highlight2" id="highlight2" />
         </div>
         <div className="flex flex-col w-full max-w-xs">
           <label className="mb-2" htmlFor="highlight3">
             Highlight 3
           </label>
-          <input
-            type="text"
-            name="highlight3"
-            id="highlight3"
-            value={weBlog?.highlights[2]}
-            onChange={(event) =>
-              setWeBlog({
-                highlights: [...weBlog?.highlights, event.target.value],
-              })
-            }
-          />
+          <input type="text" name="highlight3" id="highlight3" />
         </div>
         <div className="flex flex-col w-full max-w-xs">
           <label className="mb-2" htmlFor="highlight4">
             Highlight 4
           </label>
-          <input
-            type="text"
-            name="highlight4"
-            id="highlight4"
-            value={weBlog?.highlights[3]}
-            onChange={(event) =>
-              setWeBlog({
-                highlights: [...weBlog?.highlights, event.target.value],
-              })
-            }
-          />
+          <input type="text" name="highlight4" id="highlight4" />
         </div>
 
         <div className="flex flex-col w-full max-w-xs">
           <label className="mb-2" htmlFor="rating">
             Rating
           </label>
-          <input
-            type="number"
-            name="rating"
-            id="rating"
-            value={weBlog.rating}
-            onChange={(event) => setWeBlog({ rating: event.target.value })}
-          />
+          <input type="number" name="rating" id="rating" />
         </div>
 
         <div className="flex justify-between items-center w-full">

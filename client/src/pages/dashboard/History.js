@@ -11,7 +11,6 @@ const History = () => {
   }, [dispatch]);
 
   const blogsIDs = localStorage.getItem("blog-history");
-  console.log(blogsIDs);
 
   return (
     <section className="flex flex-col justify-center items-center h-full w-full">

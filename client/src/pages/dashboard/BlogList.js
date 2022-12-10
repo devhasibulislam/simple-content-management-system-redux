@@ -1,8 +1,17 @@
-import React from "react";
-import useBlogs from "../../hooks/useBlogs";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import getBlogs from "../../redux/thunks/getBlogs";
+import deleteBlog from "../../redux/thunks/deleteBlog";
+import { useNavigate } from "react-router-dom";
 
 const BlogList = () => {
-  const blogs = useBlogs();
+  const dispatch = useDispatch();
+  const { blogs } = useSelector((state) => state.blog);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    dispatch(getBlogs());
+  }, [dispatch]);
 
   return (
     <section className="flex flex-col justify-center items-center h-full w-full">
@@ -15,7 +24,6 @@ const BlogList = () => {
           <table class="table-auto w-full">
             <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
               <tr>
-                <th></th>
                 <th class="p-2">
                   <div class="font-semibold text-left">Title</div>
                 </th>
@@ -41,9 +49,6 @@ const BlogList = () => {
               {blogs.map(({ title, description, tag, author, rating, _id }) => (
                 <tr>
                   <td class="p-2">
-                    <input type="checkbox" class="w-5 h-5" value="id-1" />
-                  </td>
-                  <td class="p-2">
                     <div class="font-medium text-gray-800">{title}</div>
                   </td>
                   <td class="p-2">
@@ -65,7 +70,8 @@ const BlogList = () => {
                   </td>
                   <td class="p-2">
                     <div class="flex justify-center">
-                      <button>
+                      {/* remove button */}
+                      <button onClick={() => dispatch(deleteBlog(_id))}>
                         <svg
                           class="w-8 h-8 hover:text-red-600 rounded-full hover:bg-gray-100 p-1"
                           fill="none"
@@ -81,7 +87,10 @@ const BlogList = () => {
                           ></path>
                         </svg>
                       </button>
-                      <button>
+                      {/* update button */}
+                      <button
+                        onClick={() => navigate(`/dashboard/update/${_id}`)}
+                      >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"

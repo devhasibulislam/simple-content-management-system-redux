@@ -53,12 +53,12 @@ const BlogCard = ({ blog }) => {
       <div className="flex justify-between mt-4">
         <button
           className="rounded-lg text-indigo-500 font-semibold"
-          onClick={() => navigate(`blog/${_id}`)}
+          onClick={() => navigate(`/blog/${_id}`)}
         >
           Read more
         </button>
         <span className="rounded-full flex">
-          {[...Array(Number(rating)).keys()].map((rate) => (
+          {[...Array(rating)?.keys()]?.map((rate) => (
             <svg
               key={rate}
               xmlns="http://www.w3.org/2000/svg"

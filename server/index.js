@@ -64,7 +64,11 @@ const run = async () => {
 
     app.patch("/blog/:id", async (req, res) => {
       const id = req.params.id;
-      const result = await blogsCollection.updateOne({ _id: ObjectId(id) });
+      const body = req.body;
+      const result = await blogsCollection.updateOne(
+        { _id: ObjectId(id) },
+        { $set: body }
+      );
 
       res.status(202).send({
         status: true,

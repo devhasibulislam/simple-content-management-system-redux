@@ -2,6 +2,7 @@ import blogActionTypes from "../actionTypes/blogActionTypes";
 
 const initialState = {
   blogs: [],
+  blog: {},
 };
 
 const blogReducer = (state = initialState, action) => {
@@ -27,10 +28,7 @@ const blogReducer = (state = initialState, action) => {
     case blogActionTypes.UPDATE_BLOG:
       return {
         ...state,
-        blogs: [
-          ...state.blogs.filter((blog) => blog._id !== action.payload._id),
-          action.payload,
-        ],
+        blog: action.payload,
       };
 
     default:

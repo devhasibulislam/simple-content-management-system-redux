@@ -10,27 +10,16 @@ const Sidebar = () => {
         </li>
         <hr />
         <li className="overflow-hidden text-ellipsis whitespace-nowrap">
-          <Link
-            to="/dashboard"
-          >
-            Blog List
-          </Link>
+          <Link to="/dashboard"> History </Link>
         </li>
         <li className="overflow-hidden text-ellipsis whitespace-nowrap">
-          <Link
-            to="add-blog"
-          >
-            {" "}
-            Add Blog{" "}
-          </Link>
+          <Link to="blog-list">Blog List</Link>
+        </li>
+        <li className="overflow-hidden text-ellipsis whitespace-nowrap">
+          <Link to="add-blog"> Add Blog </Link>
         </li>
         <li className="mt-auto overflow-hidden text-ellipsis whitespace-nowrap">
-          <Link
-            to="/"
-          >
-            {" "}
-            Back to Home{" "}
-          </Link>
+          <Link to="/"> Back to Home </Link>
         </li>
       </ul>
     </div>

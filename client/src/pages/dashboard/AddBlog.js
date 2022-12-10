@@ -1,8 +1,11 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import addBlog from "../../redux/thunks/addBlog";
 
 const AddBlog = () => {
   const { register, handleSubmit } = useForm();
+  const dispatch = useDispatch();
 
   const submit = (data) => {
     const blog = {
@@ -20,7 +23,7 @@ const AddBlog = () => {
       ],
     };
 
-    console.log(blog);
+    dispatch(addBlog(blog));
   };
 
   return (

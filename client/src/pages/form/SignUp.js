@@ -7,6 +7,7 @@ import {
   useCreateUserWithEmailAndPassword,
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
+import useUser from "../../hooks/useUser";
 
 const SignUp = () => {
   const { register, handleSubmit } = useForm();
@@ -27,6 +28,7 @@ const SignUp = () => {
   };
 
   let content = null;
+  useUser(user);
 
   if (user) {
     content = (

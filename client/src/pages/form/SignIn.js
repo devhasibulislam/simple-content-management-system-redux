@@ -7,6 +7,7 @@ import {
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
+import useUser from "../../hooks/useUser";
 
 const SignIn = () => {
   const { register, handleSubmit } = useForm();
@@ -24,6 +25,8 @@ const SignIn = () => {
 
     await signInWithEmailAndPassword(email, password);
   };
+
+  useUser(userG);
 
   if (userEP || userG) {
     content = (

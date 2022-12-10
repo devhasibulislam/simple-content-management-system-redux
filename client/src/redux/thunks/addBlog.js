@@ -1,6 +1,6 @@
 const addBlog = (blog) => {
   return async (dispatch, getState) => {
-    const res = await fetch("http://localhost:5000/blog", {
+    const res = await fetch("https://simple-content-management-system-redux.vercel.app/blog", {
       method: "POST",
       headers: {
         "content-type": "application/json",

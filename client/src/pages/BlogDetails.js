@@ -44,7 +44,7 @@ const BlogDetails = () => {
                     <div class="w-12 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
                     <p class="text-base mb-2">{title}</p>
                     <span className="rounded-full flex">
-                      {[...Array(Number(rating)).keys()].map((rate) => (
+                      {[...Array(rating)?.keys()]?.map((rate) => (
                         <svg
                           key={rate}
                           xmlns="http://www.w3.org/2000/svg"
@@ -72,7 +72,7 @@ const BlogDetails = () => {
             </div>
           </div>
           <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2 lg:px-0 md:px-0 px-4">
-            {highlights.map((highlight, index) => (
+            {highlights?.map((highlight, index) => (
               <div key={index} class="p-2 sm:w-1/2 w-full">
                 <div class="bg-gray-100 rounded flex p-4 h-full items-center">
                   <svg

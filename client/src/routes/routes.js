@@ -1,9 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
+import RequireAuth from "../components/RequireAuth";
 import Dashboard from "../layout/dashboard/Dashboard";
 import Main from "../layout/main/Main";
 import BlogDetails from "../pages/BlogDetails";
 import AddBlog from "../pages/dashboard/AddBlog";
 import BlogList from "../pages/dashboard/BlogList";
+import UpdateBlog from "../pages/dashboard/UpdateBlog";
 import ForgotPassword from "../pages/form/ForgotPassword";
 import SignIn from "../pages/form/SignIn";
 import SignUp from "../pages/form/SignUp";
@@ -38,7 +40,11 @@ const routes = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard />,
+    element: (
+      <RequireAuth>
+        <Dashboard />
+      </RequireAuth>
+    ),
     children: [
       {
         path: "/dashboard",
@@ -47,6 +53,10 @@ const routes = createBrowserRouter([
       {
         path: "add-blog",
         element: <AddBlog />,
+      },
+      {
+        path: "update/:id",
+        element: <UpdateBlog />,
       },
     ],
   },

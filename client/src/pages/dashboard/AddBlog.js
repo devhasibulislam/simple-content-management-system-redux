@@ -68,8 +68,8 @@ const AddBlog = () => {
             <option value="machine-learning">Machine Learning</option>
             <option value="cloud-computing">Cloud Computing</option>
             <option value="embedded-system">Embedded System</option>
-            <option value="nanotechnology">Nanotechnology</option>
             <option value="big-data">Big Data</option>
+            <option value="nanotechnology">Nanotechnology</option>
             <option value="hadoop">Hadoop</option>
             <option value="dbms">DBMS</option>
           </select>

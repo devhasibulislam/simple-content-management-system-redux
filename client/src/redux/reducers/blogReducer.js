@@ -25,10 +25,20 @@ const blogReducer = (state = initialState, action) => {
         blogs: action.payload,
       };
 
-    case blogActionTypes.UPDATE_BLOG:
+    case blogActionTypes.FETCH_BLOG:
       return {
         ...state,
         blog: action.payload,
+      };
+
+    case blogActionTypes.UPDATE_BLOG:
+      return {
+        ...state,
+        blogs: [
+          ...state.blogs,
+          state.blogs.filter((blog) => blog._id !== action.payload._id),
+          action.payload,
+        ],
       };
 
     default:

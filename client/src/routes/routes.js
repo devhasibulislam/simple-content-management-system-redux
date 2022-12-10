@@ -5,6 +5,7 @@ import Main from "../layout/main/Main";
 import BlogDetails from "../pages/BlogDetails";
 import AddBlog from "../pages/dashboard/AddBlog";
 import BlogList from "../pages/dashboard/BlogList";
+import History from "../pages/dashboard/History";
 import UpdateBlog from "../pages/dashboard/UpdateBlog";
 import ForgotPassword from "../pages/form/ForgotPassword";
 import SignIn from "../pages/form/SignIn";
@@ -53,11 +54,15 @@ const routes = createBrowserRouter([
     children: [
       {
         path: "/dashboard",
-        element: <BlogList />,
+        element: <History />,
       },
       {
         path: "add-blog",
         element: <AddBlog />,
+      },
+      {
+        path: "blog-list",
+        element: <BlogList />,
       },
       {
         path: "update/:id",

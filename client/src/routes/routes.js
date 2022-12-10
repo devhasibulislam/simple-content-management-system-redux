@@ -10,6 +10,7 @@ import ForgotPassword from "../pages/form/ForgotPassword";
 import SignIn from "../pages/form/SignIn";
 import SignUp from "../pages/form/SignUp";
 import Home from "../pages/Home";
+import Tags from "../pages/Tags";
 
 const routes = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const routes = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/tags",
+        element: <Tags />,
       },
       {
         path: "blog/:id",

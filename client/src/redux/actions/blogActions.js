@@ -21,6 +21,13 @@ export const fetchBlogsData = (data) => {
   };
 };
 
+export const fetchBlogData = (data) => {
+  return {
+    type: blogActionTypes.FETCH_BLOG,
+    payload: data,
+  };
+};
+
 export const updateBlogData = (data) => {
   return {
     type: blogActionTypes.UPDATE_BLOG,
